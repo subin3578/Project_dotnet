@@ -1,6 +1,6 @@
 <h2 data-ke-size="size26"><b>📘 ASP.NET Core MVC + MySQL 게시판 만들기</b></h2>
+<h4 data-ke-size="size18">EF Core 과 Razor, MySQL 를 활용한 게시판 미니 프로젝트</h4>
 </br>
-<h4 data-ke-size="size20">EF Core 과 Razor, MySQL 를 활용한 게시판 미니 프로젝트</h4>
 
 <h2 data-ke-size="size26"><b>EF Core + MySQL 세팅</b></h2>
 <h4 data-ke-size="size20"><b>EF Core(Entity Framework Core)</b></h4>
@@ -27,6 +27,7 @@ dotnet add package Microsoft.EntityFrameworkCore.Design</code></pre>
 <img width="2400" height="1730" alt="image" src="https://github.com/user-attachments/assets/c4ce7a09-673e-4f38-b732-b8d86a14e8c9" />
 <img width="2410" height="1550" alt="image" src="https://github.com/user-attachments/assets/b813a695-3ec6-41fa-abfc-c2288def9adb" />
 <img width="2418" height="1580" alt="image" src="https://github.com/user-attachments/assets/e42d554b-b372-43b4-8803-b20ead7e42c8" />
+
 
 
 
