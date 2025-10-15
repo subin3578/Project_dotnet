@@ -1,0 +1,21 @@
+## =========================
+##  ASP.NET Core / C# / VSCode 프로젝트용
+## =========================
+bin/
+obj/
+out/
+debug/
+release/
+.vscode/
+.idea/
+.DS_Store
+*.user
+*.suo
+*.db
+*.sqlite
+*.log
+.env
+packages/
+project.lock.json
+publish/
+TestResults/
