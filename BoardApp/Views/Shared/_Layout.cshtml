@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BoardApp</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/BoardApp.styles.css" asp-append-version="true" />
+</head>
+<style>
+  :root{
+    --bg:#f5f5f7;          /* Apple식 연한 그레이 */
+    --card:#ffffff;
+    --text:#1d1d1f;
+    --muted:#6e6e73;
+    --line:#e5e5ea;
+    --primary:#0a84ff;     /* iOS 파랑 */
+    --danger:#ff3b30;
+    --warning:#ff9f0a;
+    --radius:16px;
+    --shadow:0 8px 24px rgba(0,0,0,.08);
+    --shadow-sm:0 4px 12px rgba(0,0,0,.06);
+    --ring:0 0 0 3px rgba(10,132,255,.25);
+  }
+  html,body{height:100%}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font:16px/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  }
+  .page{
+    max-width:960px;
+    margin:40px auto;
+    padding:0 20px;
+  }
+  .page h1, .page h2{font-weight:700; letter-spacing:-.3px; margin:0 0 18px}
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:24px;
+  }
+  .toolbar{display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin:12px 0 20px}
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center;
+    height:36px; padding:0 14px; border-radius:12px; border:1px solid transparent;
+    background:#f2f2f7; color:#111; text-decoration:none; cursor:pointer; transition:.15s ease;
+  }
+  .btn:hover{box-shadow:var(--shadow-sm)}
+  .btn-primary{background:var(--primary); color:#fff}
+  .btn-secondary{background:#e9e9ee}
+  .btn-warning{background:var(--warning); color:#fff}
+  .btn-danger{background:var(--danger); color:#fff}
+  .btn-ghost{background:transparent; border-color:var(--line)}
+  .grid{display:grid; gap:16px}
+  .form{
+    display:grid; gap:14px;
+  }
+  .field label{display:block; font-weight:600; margin-bottom:6px}
+  .input, textarea{
+    width:100%; box-sizing:border-box; background:#fff; border:1px solid var(--line);
+    border-radius:12px; padding:10px 12px; outline:none; transition:.15s ease;
+  }
+  .input:focus, textarea:focus{box-shadow:var(--ring); border-color:var(--primary)}
+  .hint{font-size:.9rem; color:var(--muted)}
+  .error{color:#d70015; font-size:.9rem}
+  table.table{
+    width:100%; border-collapse:separate; border-spacing:0; overflow:hidden;
+    border:1px solid var(--line); border-radius:16px; background:#fff; box-shadow:var(--shadow);
+  }
+  .table th, .table td{padding:12px 14px; border-bottom:1px solid var(--line); vertical-align:middle}
+  .table thead th{background:#fafafa; font-weight:700}
+  .table tr:last-child td{border-bottom:none}
+  .right{margin-left:auto}
+  .muted{color:var(--muted)}
+  .actions{display:flex; gap:8px; justify-content:flex-end}
+  .searchbar{display:flex; gap:8px}
+  .searchbar .input{height:36px}
+</style>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BoardApp</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2025 - BoardApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+<div class="page">
+  <main role="main" class="pb-3">
+      @RenderBody()
+  </main>
+</div>

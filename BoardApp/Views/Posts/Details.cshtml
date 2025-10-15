@@ -1,0 +1,33 @@
+@model BoardApp.Models.Post
+
+<h2>게시글 보기</h2>
+
+<div class="card" style="padding:32px;">
+    <!-- 제목 영역 -->
+    <div style="border-bottom:1px solid var(--line); padding-bottom:16px; margin-bottom:24px;">
+        <h1 style="font-size:1.7rem; font-weight:700; letter-spacing:-.4px; margin-bottom:8px;">
+            @Model.Title
+        </h1>
+        <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center; font-size:.95rem; color:var(--muted);">
+            <span>작성자 <strong style="color:var(--text)">@Model.Author</strong></span>
+            <span>•</span>
+            <span>@Model.CreatedAt.ToLocalTime().ToString("yyyy-MM-dd HH:mm")</span>
+            <span class="right" style="margin-left:auto; font-size:.9rem; color:var(--muted)">No. @Model.Id</span>
+        </div>
+    </div>
+
+    <!-- 본문 영역 -->
+    <div style="white-space:pre-wrap; font-size:1.05rem; line-height:1.8; color:var(--text); min-height:200px;">
+        @Model.Content
+    </div>
+
+    <!-- 하단 버튼 영역 -->
+    <div class="toolbar" style="margin-top:36px; justify-content:flex-end; gap:10px;">
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">수정</a>
+        <form asp-action="Delete" asp-route-id="@Model.Id" method="post" class="d-inline">
+            @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-danger" onclick="return confirm('정말 삭제할까요?');">삭제</button>
+        </form>
+        <a asp-action="Index" class="btn btn-secondary">목록</a>
+    </div>
+</div>

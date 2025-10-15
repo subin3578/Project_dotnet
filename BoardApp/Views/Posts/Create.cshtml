@@ -1,0 +1,35 @@
+@model BoardApp.Models.Post
+
+<h2>새 글쓰기</h2>
+
+<div class="card">
+  <form asp-action="Create" method="post" class="form">
+    @Html.AntiForgeryToken()
+
+    <div class="field">
+      <label asp-for="Title"></label>
+      <input asp-for="Title" class="input" />
+      <span asp-validation-for="Title" class="error"></span>
+      <div class="hint">최대 100자</div>
+    </div>
+
+    <div class="field">
+      <label asp-for="Content"></label>
+      <textarea asp-for="Content" rows="10"></textarea>
+      <span asp-validation-for="Content" class="error"></span>
+    </div>
+
+    <div class="field">
+      <label asp-for="Author"></label>
+      <input asp-for="Author" class="input" />
+      <span asp-validation-for="Author" class="error"></span>
+    </div>
+
+    <div class="toolbar">
+      <button type="submit" class="btn btn-primary">등록</button>
+      <a asp-action="Index" class="btn btn-secondary">목록</a>
+    </div>
+  </form>
+</div>
+
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

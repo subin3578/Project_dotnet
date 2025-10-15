@@ -1,0 +1,45 @@
+@model IEnumerable<BoardApp.Models.Post>
+
+<h2>게시글</h2>
+
+<div class="card">
+
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th style="width:80px">번호</th>
+        <th>제목</th>
+        <th style="width:140px">작성자</th>
+        <th style="width:180px">작성일</th>
+        <th style="width:240px" class="right">관리</th>
+      </tr>
+    </thead>
+    <tbody>
+    @foreach (var post in Model)
+    {
+      <tr>
+        <td>@post.Id</td>
+        <td>
+          <a asp-action="Details" asp-route-id="@post.Id" style="text-decoration:none">@post.Title</a>
+        </td>
+        <td>@post.Author</td>
+        <td>@post.CreatedAt.ToLocalTime().ToString("yyyy-MM-dd HH:mm")</td>
+        <td>
+          <div class="actions">
+            <a asp-action="Details" asp-route-id="@post.Id" class="btn btn-ghost">보기</a>
+            <a asp-action="Edit" asp-route-id="@post.Id" class="btn btn-warning">수정</a>
+            <form asp-action="Delete" asp-route-id="@post.Id" method="post" class="d-inline">
+              @Html.AntiForgeryToken()
+              <button type="submit" class="btn btn-danger" onclick="return confirm('정말 삭제할까요?');">삭제</button>
+            </form>
+          </div>
+        </td>
+      </tr>
+    }
+    </tbody>
+  </table>
+    <div style="justify-content:flex-start;">
+        <a asp-action="Create" class="btn btn-primary">새 글쓰기</a>
+    </div>
+</div>
